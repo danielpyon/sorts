@@ -24,6 +24,17 @@ void bubble_sort(int* list, int n) {
                 swap(&list[j], &list[j + 1]);
 }
 
+void insertion_sort(int* list, int n) {
+    for (int i = 1; i < n; i++)
+        if (list[i - 1] > list[i]) {
+            int j = i;
+            while (j > 0 && list[j - 1] > list[j]) {
+                swap(&list[j], &list[j - 1]);
+                j--;
+            }
+        }
+}
+
 int main(int argc, char** argv) {
     if (argc <= 1) {
         fprintf(stderr, "Usage: sorts [...]\n");
@@ -36,7 +47,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < n; i++)
         list[i] = atoi(argv[i + 1]);
 
-    bubble_sort(list, n);
+    insertion_sort(list, n);
 
     for (int i = 0; i < n; i++)
         printf("%d\n", list[i]);
