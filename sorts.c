@@ -62,8 +62,9 @@ void counting_sort(int* list, int n, int min, int max) {
             for (int j = 0; j < freqs[i]; j++)
                 list[curr++] = i;
 
-    for (int i = 0; i < n; i++)
-        list[i] += min;
+    if (min < 0)
+        for (int i = 0; i < n; i++)
+            list[i] += min;
 }
 
 int main(int argc, char** argv) {
