@@ -17,6 +17,13 @@ void selection_sort(int* list, int n) {
     }
 }
 
+void bubble_sort(int* list, int n) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            if (list[j] > list[j + 1])
+                swap(&list[j], &list[j + 1]);
+}
+
 int main(int argc, char** argv) {
     if (argc <= 1) {
         fprintf(stderr, "Usage: sorts [...]\n");
@@ -29,7 +36,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < n; i++)
         list[i] = atoi(argv[i + 1]);
 
-    selection_sort(list, n);
+    bubble_sort(list, n);
 
     for (int i = 0; i < n; i++)
         printf("%d\n", list[i]);
