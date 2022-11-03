@@ -7,7 +7,7 @@ void swap(int* x, int* y) {
     *y = tmp;
 }
 
-int* selection_sort(int* list, int n) {
+void selection_sort(int* list, int n) {
     for (int i = 0; i < n; i++) {
         int* min = &list[i];
         for (int j = i + 1; j < n; j++)
